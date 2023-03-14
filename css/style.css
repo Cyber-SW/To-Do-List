@@ -1,0 +1,79 @@
+html {
+    background-image: linear-gradient(rgba(41, 49, 51, 0.3), rgba(41, 49, 51, 0.3)), url(../img/bg-wqhd.png);
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+hr {
+    margin-top: 1.5em;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+section {
+    width: 50em;
+    background-color: rgba(41, 49, 51, 0.8);
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.section-header {
+    width: 50em;
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+}
+
+.submit-task {
+    width: 50em;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-title {
+    width: 42em;
+    display: flex;
+    background-color: transparent;
+    border: none;
+}
+
+.textarea {
+    width: 42em;
+    height: 3.1em;
+    margin-top: 1em;
+    background-color: transparent;
+    border: none;
+    resize: none;
+}
+
+.submit-task-btn {
+    width: 21em;
+    height: 6em;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    color: white;
+}
+
+.section-body {
+    width: 50em;
+    display: flex;
+    flex-direction: row;
+}
+
+.to-do {
+    width: 37em;
+    display: flex;
+    flex-direction: column;
+}
+
+.done {
+    width: 13em;
+}
