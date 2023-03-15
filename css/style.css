@@ -12,8 +12,15 @@ body {
     flex-direction: column;
 }
 
+header {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
 hr {
-    margin-top: 1.5em;
+    margin-top: -4em;
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
@@ -38,42 +45,100 @@ section {
 }
 
 .input-title {
-    width: 42em;
+    width: 39em;
     display: flex;
     background-color: transparent;
     border: none;
+    outline: none;
+    color: white;
 }
 
 .textarea {
-    width: 42em;
+    width: 39em;
     height: 3.1em;
     margin-top: 1em;
     background-color: transparent;
     border: none;
+    outline: none;
     resize: none;
+    color: white;
 }
 
-.submit-task-btn {
+#submit-task-btn {
     width: 21em;
     height: 6em;
     background-color: transparent;
     border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 12px;
     color: white;
+    position: relative;
+    left: 39em;
+    bottom: 6em;
 }
 
-.section-body {
+#submit-task-btn:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+#section-body {
     width: 50em;
+    height: 33em;
+}
+
+.to-do-headline {
     display: flex;
+    align-items: baseline;
     flex-direction: row;
 }
 
-.to-do {
-    width: 37em;
-    display: flex;
-    flex-direction: column;
+.to-do-headline > h3 {
+    margin-right: 26.2em;
 }
 
+.to-do {
+    width: 31em;
+    background-color: aqua;
+    border-radius: 12px;
+}
+
+.to-do-alignment {
+    display: flex;
+    align-items: baseline;
+    flex-direction: row;
+}
+
+.empty-square {
+    margin-top: 1em;
+    margin-left: 1em;
+}
+
+.to-do-title {
+    margin-top: 1em;
+    margin-left: 1em;
+}
+
+.delete-task {
+    margin-left: 22em;
+    width: 1.4em;
+    height: 1.4em;
+}
+
+.to-do-text {
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-top: -0.5em;
+    margin-bottom: 1em;
+}
+
+.edit-task {
+    position: relative;
+    left: 29.2em;
+    margin-bottom: 0.5em;
+}
+
+
 .done {
-    width: 13em;
+    width: 17em;
 }
