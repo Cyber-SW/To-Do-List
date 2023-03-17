@@ -26,19 +26,22 @@ function saveTask() {
 const isEmpty = titleValue ==="" && textareaValue === "";
 
 // CHECK FOR DUPLICATE
-const isDuplicate = tasks.forEach((task) => {
-    if (task.title === titleValue && task.text === textareaValue) {
-        alert("This task already exists!");
-        titleInput.value = "";
-        textareaInput.value = "";
-        return error;
-    }
-})
+const isDuplicate = tasks.some((todo) => todo.title.toUpperCase() === titleValue.toUpperCase() && todo.text.toUpperCase() === textareaValue.toUpperCase());
+// const isDuplicate = tasks.forEach((task) => {
+//     if (task.title === titleValue && task.text === textareaValue) {
+//         alert("This task already exists!");
+//         titleInput.value = "";
+//         textareaInput.value = "";
+//         return error;
+//     }
+// })
 
     if (isEmpty) {
         alert("Please enter a task :)");
     }
-    
+    else if(isDuplicate) {
+        alert("Task already exists!");
+    }
     else {
         if(EditTodoId >= 0) {
             tasks = tasks.map((todo, index) => ({
@@ -51,13 +54,11 @@ const isDuplicate = tasks.forEach((task) => {
         }
 
         else {
-            const todo = {
+            tasks.push({
                 title : titleValue,
                 text : textareaValue,
                 checked : false,
-            }
-
-            tasks.push(todo);
+            });
         }
 
         titleInput.value = "";
@@ -86,11 +87,7 @@ function renderTask() {
 
                 <p class="to-do-text">${task.text}</p>
                 
-                <button id="edit-task" type="submit">
-                    <svg data-action="edit" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                    </svg>
+                <button id="edit-task" type="submit" data-action="edit">
                 </button>
             </div>`
     })
@@ -116,22 +113,31 @@ tasksListElem.addEventListener("click", (event) => {
 
     action === "check" && checkTodo(todoId);
     action === "edit" && editTodo(todoId);
-    // action === "delete" && deleteTodo(todoId);
+    action === "delete" && deleteTodo(todoId);
 })
 
-// CHECK a TODO
+// CHECK TODO
 function checkTodo(todoId) {
     tasks = tasks.map((todo, index) => ({
             ...todo,
-            checked : index === todoId ? !todo.checked : todo.checked
+            checked : index === todoId ? !todo.checked : todo.checked,
     }));
 
     renderTask();
 }
 
-// EDIT A TODO
+// EDIT TODO
 function editTodo(todoId) {
-    titleInput.value = tasks[todoId].title.value;
-    textareaInput.value = tasks[todoId].text.value;
+    titleInput.value = tasks[todoId].title;
+    textareaInput.value = tasks[todoId].text;
     EditTodoId = todoId;
+}
+
+// DELETE TODO
+function deleteTodo(todoId) {
+    tasks = tasks.filter((todo, index) => index !== todoId);
+    EditTodoId = -1;
+
+    // RE-RENDER
+    renderTask();
 }

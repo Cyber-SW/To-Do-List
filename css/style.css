@@ -1,3 +1,22 @@
+@font-face {
+    font-family: "Obitron";
+    font-style: "black";
+    src: url(../fonts/obitron/Orbitron-Black.woff);
+}
+
+@font-face {
+    font-family: "Montserrat";
+    font-weight: "regular";
+    src: url(../fonts/montserrat/Montserrat-Regular.woff);
+    font-weight: "light";
+    src: url(../fonts/montserrat/Montserrat-Light.woff);
+}
+
+@font-face {
+    font-family: "Montserrat-thin";
+    src: url(../fonts/montserrat/Montserrat-Thin.woff);
+}
+
 html {
     background-image: linear-gradient(rgba(41, 49, 51, 0.3), rgba(41, 49, 51, 0.3)), url(../img/bg-wqhd.png);
     background-size: cover;
@@ -14,13 +33,25 @@ body {
 
 header {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
-    text-align: center;
+    text-align: flex-start;
+    font-family: "Obitron";
+    letter-spacing: 0.0.5em;
+    font-kerning: auto;
+}
+
+header h1 {
+    margin-bottom: -0.1em;
+    font-size: 4.1em;
+}
+
+header h2 {
+    display: flex;
+    justify-content: center;
 }
 
 hr {
-    margin-top: -4em;
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
@@ -34,26 +65,29 @@ section {
 .section-header {
     width: 50em;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: baseline;
+    margin-bottom: -1em;
 }
 
 .submit-task {
     width: 50em;
     display: flex;
     flex-direction: column;
+    max-height: 8.5em;
 }
 
-.input-title {
+#input-title {
     width: 39em;
-    display: flex;
     background-color: transparent;
     border: none;
     outline: none;
     color: white;
+    font-family: "Montserrat";
+    font-weight: "regular";
 }
 
-.textarea {
+#textarea {
     width: 39em;
     height: 3.1em;
     margin-top: 1em;
@@ -62,45 +96,59 @@ section {
     outline: none;
     resize: none;
     color: white;
+    overflow: hidden;
+    font-family: "Montserrat";
+    font-weight: "regular";
 }
 
 #submit-task-btn {
-    width: 21em;
-    height: 6em;
+    box-sizing: border-box;
+    width: 13em;
+    height: 4.5em;
     background-color: transparent;
     border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 12px;
     color: white;
     position: relative;
-    left: 39em;
-    bottom: 6em;
+    left: 22.8em;
+    bottom: 3.7em;
+    font-family: "Obitron";
+    font-size: 1.4em;
+    outline: none;
 }
 
 #submit-task-btn:hover {
+    box-sizing: border-box;
     background-color: white;
     color: black;
     cursor: pointer;
+    font-family: "Obitron";
+    font-size: 1.4em;
+    outline: none;
 }
 
 #section-body {
     width: 50em;
-    height: 33em;
+    height: 30em;
 }
 
 .to-do-headline {
     display: flex;
     align-items: baseline;
     flex-direction: row;
+    font-family: "Obitron";
 }
 
 .to-do-headline > h3 {
-    margin-right: 26.5em;
+    margin-right: 23.5em;
+    margin-top: -0.5em;
 }
 
 .to-do {
     width: 31em;
+    min-height: 4em;
     margin-top: 0.7em;
-    background-color: aqua;
+    border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 12px;
     padding-bottom: 0.2em;
 }
@@ -112,54 +160,47 @@ section {
 }
 
 .checked-square {
-    margin-top: 1.2em;
-    margin-left: 1em;
-    width: 1.4em;
-    height: 1.4em;
+    margin-top: 0.55em;
+    margin-left: 0.35em;
+    width: 1.5em;
+    height: 1.5em;
     cursor: pointer;
     background-image: url(../icons/check2-square.svg);
     background-size: cover;
     border: none;
+    background-color: transparent;
 }
 
 .empty-square {
-    margin-top: 1.2em;
-    margin-left: 1em;
-    width: 1.3em;
-    height: 1.3em;
+    margin-top: 0.7em;
+    margin-left: 0.5em;
+    width: 1.2em;
+    height: 1.2em;
     cursor: pointer;
     background-image: url(../icons/square.svg);
     background-size: cover;
     border: none;
-}
-
-.empty-square svg {
-    position: relative;
-    right: 0.5em;
-    bottom: 0.2em;
+    background-color: transparent;
 }
 
 .to-do-title {
-    margin-top: 1em;
-    margin-left: 1em;
+    margin-top: 0.5em;
+    margin-left: 0.5em;
+    font-family: "Montserrat-thin";
 }
 
 #delete-task {
-    position: fixed;
-    margin-left: 34.9em;
-    margin-top: 1.1em;
+    position: absolute;
+    margin-left: 35.5em;
+    margin-top: 0.6em;
     width: 1em;
     height: 1em;
     cursor: pointer;
     background-image: url(../icons/x-lg.svg);
-}
-
-#delete-task svg {
-    position: relative;
-    right: 0.7em;
-    bottom: 0.45em;
-    width: 1.4em;
-    height: 1.4em;
+    background-size: cover;
+    background-position-y: -0.1em;
+    background-color: transparent;
+    border: none;
 }
 
 .to-do-text {
@@ -167,26 +208,22 @@ section {
     margin-right: 2em;
     margin-top: -0.8em;
     margin-bottom: 1em;
-}
-
-.deadline {
-    margin-bottom: 0.8em;
-    margin-left: 1em;
+    font-family: "Montserrat";
+    font-size: 0.8em;
 }
 
 #edit-task {
-    position: absolute;
-    margin-left: 34.9em;
-    margin-top: -1.8em;
-    height: 1.2em;
-    width: 1.2em;
-    cursor: pointer;
-}
-
-#edit-task svg {
     position: relative;
-    right: 0.5em;
-    bottom: 0.2em;
+    margin-left: 35.6em;
+    bottom: 0.1em;
+    height: 1em;
+    width: 1em;
+    cursor: pointer;
+    background-color: transparent;
+    background-image: url(../icons/pencil-square.svg);
+    background-size: cover;
+    background-color: transparent;
+    border: none;
 }
 
 .done {

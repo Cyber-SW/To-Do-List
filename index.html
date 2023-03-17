@@ -5,13 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Ultimate To-Do-List</title>
         <link rel="stylesheet" href="css/style.css">
-    
-        <!--Google Fonts-->
     </head>
 
     <body>
         <header>
-            <h1>Ultimate To-Do-List</h1>
+            <h1>ULTIMATE TO-DO-LIST</h1>
             <h2>by Cyber-SW</h2>
         </header>
 
@@ -19,18 +17,18 @@
             <div class="section-header">
                 <div class="submit-task">
                     <form id="todoform">
-                        <input class="input-title" type="text" name="to-do-title" id="input-title" placeholder="When is the deadline?">
-                        <textarea class="textarea" name="to-do-task" id="textarea" rows="4" cols="33" placeholder="What should be done?"></textarea>
+                        <input type="text" name="to-do-title" id="input-title" placeholder="When is the deadline?" autocomplete="off">
+                        <textarea name="to-do-task" id="textarea" rows="4" cols="33" placeholder="What should be done?"></textarea>
                         <input type="submit" name="submit-task-btn" id="submit-task-btn" value="ADD TASK">
                     </form>
                 </div>
-            </div>
-        <hr>
-            <div id="section-body">
                 <div class="to-do-headline">
                     <h3>TASKS</h3>
                     <h3>DONE</h3>
                 </div>
+            </div>
+        <hr>
+            <div id="section-body">
                 <!-- <div class="to-do" id="0">
                     <div class="to-do-alignment">
                         <h4 class="to-do-title">Deadline: 20.03.2020</h4>
